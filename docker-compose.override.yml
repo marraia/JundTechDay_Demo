@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  msp_demo.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5555:80"
