@@ -1,3 +1,5 @@
 #!/bin/bash
-cd /home/marraia/myagent/_work/1/s
+echo 'Acessando pasta para executar build'
+cd '/home/marraia/myagent/_work/1/s'
+echo 'Executar Docker Compose'
 sudo docker-compose up -d
