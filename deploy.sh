@@ -2,4 +2,4 @@
 echo 'Acessando pasta para executar build'
 cd '/home/marraia/myagent/_work/1/s'
 echo 'Executar Docker Compose'
-ssh -t marraia@marraia sudo docker-compose up -d
+docker-compose up -d
