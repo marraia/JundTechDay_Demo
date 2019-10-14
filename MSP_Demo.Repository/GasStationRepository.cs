@@ -71,7 +71,7 @@ namespace MSP_Demo.Repository
                 }
             });
 
-            var colAggregate = _context.GasStations.Aggregate().AppendStage(pipeline);
+            var colAggregate = _context.GasStations.Aggregate().AppendStage(pipeline).Limit(10);
             return await colAggregate.ToListAsync();
         }
 
