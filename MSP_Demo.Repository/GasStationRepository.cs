@@ -51,7 +51,7 @@ namespace MSP_Demo.Repository
 
         public async Task<IEnumerable<GasStationLocationValueObject>> GetProximityAsync(double latitude, double longitude, string name)
         {
-            var filter = new BsonDocument { { "name", new BsonRegularExpression($"{name}") } };
+            var filter = new BsonDocument { { "name", new BsonRegularExpression($"/^{name}/") } };
             var pipeline = new BsonDocumentPipelineStageDefinition<GasStation, GasStationLocationValueObject>(new BsonDocument
             {
                 { "$geoNear", new BsonDocument
@@ -65,9 +65,8 @@ namespace MSP_Demo.Repository
                         { "distanceField", "dist.calculated" },
                         { "maxDistance", 10000 },
                         { "query" , filter },
-                        { "num", 20 },
                         { "includeLocs", "dist.location" },
-                        { "spherical", true}
+                        { "spherical", true},
                     }
                 }
             });
